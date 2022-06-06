@@ -1,0 +1,97 @@
+@use "sass:math";
+@use "sass:map";
+
+$breakpoints: ("mobile": 599, "tablet": 600, "desktop": 1200, "desktop-big": 1800);
+
+// Breakpoints
+@mixin breakpoint ($breakpoint) {
+	@each $breakpoint-name, $breakpoint-value in $breakpoints {
+		@if $breakpoint == $breakpoint-name {
+			@media only screen and (min-width: $breakpoint-value) {
+				@content;
+			}
+		}
+	}
+}
+
+// Grid
+
+$columns: 12; // number of columns in the grid system
+$width: 960;
+
+.container {
+	//max-width: 960px;
+	margin: 0 auto;
+}
+
+@each $breakpoint-key, $breakpoint-value in $breakpoints {
+	@if $breakpoint-key != "mobile" {
+		@media only screen and (min-width:$breakpoint-value + 'px') {
+			.container {
+				width: #{$breakpoint-value - 30}px;
+			}
+		}
+	} @else {
+		@media only screen and (max-width: map.get($breakpoints, "mobile") + 'px') {
+			@for $breakpoint-value from 1 through $columns {
+				.container {
+					max-width: 96%;
+				}
+			}
+		}
+	}
+}
+
+.cols {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+
+.cols {
+	@media only screen and (min-width: 0) {
+		.col {
+			background-color: purple;
+			background: rgb(141, 5, 168);
+			background: linear-gradient(180deg, rgba(141, 5, 168, 1) 0%, rgba(172, 48, 196, 1) 100%);
+			color: white;
+			border: LavenderBlush 2px solid;
+			border-radius: 5px;
+			padding: 16px;
+			flex-basis: 100%;
+		}
+	}
+
+	@for $breakpoint-value from 1 through $columns {
+		.col-#{$breakpoint-value} {
+			flex-basis: math.div($breakpoint-value,$columns) * 100%;
+		}
+	}
+
+	@each $breakpoint-name, $breakpoint-value in $breakpoints {
+		@if $breakpoint-name != "mobile" {
+			@media only screen and (min-width: $breakpoint-value + 'px') {
+				.container {
+					max-width: $breakpoint-value + 'px';
+				}
+				@for $breakpoint-value from 1 through $columns {
+					.col-#{$breakpoint-value}-#{$breakpoint-name}-up {
+						flex-basis: math.div($breakpoint-value,$columns) * 100%;
+					}
+				}
+			}
+		} @else {
+			@media only screen and (max-width: map.get($breakpoints, "mobile") + 'px') {
+				@for $breakpoint-value from 1 through $columns {
+					.col-#{$breakpoint-value} {
+						flex-basis: 100%;
+					}
+
+					.col-#{$breakpoint-value}-#{$breakpoint-name}-up {
+						flex-basis: math.div($breakpoint-value,$columns) * 100%;
+					}
+				}
+			}
+		}
+	}
+}
