@@ -4,17 +4,17 @@
   "description": "CSS grid and elements.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run watch-css & npm run watch-ejs",
+    "start": "yarn run watch-css & yarn run watch-ejs",
     "reload": "reload -w src/ -d public/ -e html,scss,css,js,ejs -p 3000",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "watch-css": "nodemon -e scss -x \"yarn run build-css\"",
     "build-css": "sass src/scss:public/css --style expanded",
-    "watch-ejs": "nodemon -e ejs -x \"npm run build-html\"",
+    "watch-ejs": "nodemon -e ejs -x \"yarn run build-html\"",
     "build-html-index": "ejs views/index.ejs -o public/index.html",
-    "build-html": "npm run build-html-index & npm run reload"
+    "build-html": "yarn run build-html-index & yarn run reload"
   },
   "repository": "https://github.com/wptom/cols.git",
   "author": "wptom.com <tom@wptom.com>",
-  "license": "GNU GENERAL PUBLIC LICENSE",
+  "license": "GPL-3.0",
   "dependencies": {
     "ejs": "^3.1.8",
     "nodemon": "^2.0.16",
