@@ -7,15 +7,16 @@
     "start": "yarn run watch-css & yarn run watch-ejs",
     "reload": "reload -w src/ -d public/ -e html,scss,css,js,ejs -p 3000",
     "watch-css": "nodemon -e scss -x \"yarn run build-css\"",
-    "build-css": "sass src/scss:public/css --style expanded",
+    "build-css": "sass src/scss/main.scss:public/css/main.css --style expanded",
     "watch-ejs": "nodemon -e ejs -x \"yarn run build-html\"",
     "build-html-index": "ejs views/index.ejs -o public/index.html",
     "build-html": "yarn run build-html-index & yarn run reload"
   },
   "repository": "https://github.com/wptom/cols.git",
   "author": "wptom.com <tom@wptom.com>",
-  "license": "GPL-3.0",
-  "dependencies": {
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
     "ejs": "^3.1.8",
     "nodemon": "^2.0.16",
     "reload": "^3.2.0",
