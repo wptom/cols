@@ -1,19 +1,6 @@
-<body>
+<body class="demo">
 <div class="container">
-    <h1>Cols - the CSS grid</h1>
-    <h2>col tablet up</h2>
-    <div class="cols">
-        <div class="col col-6-tablet-up">col 6 tablet up</div>
-        <div class="col col-6-tablet-up">col 6 tablet up</div>
-    </div>
-    <div class="cols">
-        <div class="col col-6">col 6</div>
-        <div class="col col-6">col 6</div>
-    </div>
-    <div class="cols">
-        <div class="col col-6 col-3-tablet-up">col 3 tablet up</div>
-        <div class="col col-6 col-9-tablet-up">col 9 tablet up</div>
-    </div>
+    <h1>Cols</h1>
 
     <h2>The same size cols</h2>
     <div class="cols">
@@ -40,6 +27,25 @@
         <% for (var i = 1; i <= 2;  i++ ) { %>
             <div class="col col-6">col-6</div>
         <% } %>
+    </div>
+
+    <h2>col tablet up</h2>
+    <div class="cols">
+        <div class="col col-6 col-8-desktop-up">col-6 col-4-tablet-up col-8-desktop-up</div>
+        <div class="col col-6 col-4-desktop-up">col-6 col-8-tablet-up col-4-desktop-up</div>
+    </div>
+    <h2>push & pull</h2>
+    <div class="cols">
+        <div class="col col-6 push-1-desktop-up">col-6 push-1-desktop-up</div>
+        <div class="col col-6 pull-2-desktop-up">col-6 pull-2-desktop-up</div>
+    </div>
+    <div class="cols">
+        <div class="col col-6 col-6-tablet-up">col tablet up</div>
+        <div class="col col-6 col-6-desktop-up">col tablet up</div>
+    </div>
+    <div class="cols">
+        <div class="col col-6 col-3-tablet-up">col 3 tablet up</div>
+        <div class="col col-6 col-3-tablet-landscape-up">col-3-tablet-landscape-up</div>
     </div>
 </div>
 </body>
