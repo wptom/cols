@@ -1,7 +1,7 @@
 @use "sass:math";
 @use "sass:map";
 
-$breakpoints: ("mobile": 599, "tablet": 600, "desktop": 1200, "desktop-big": 1800);
+$breakpoints: ("mobile": 599, "tablet": 600, "tablet-landscape": 900, "desktop": 1200, "desktop-big": 1800);
 
 // Breakpoints
 @mixin breakpoint ($breakpoint) {
@@ -17,81 +17,89 @@ $breakpoints: ("mobile": 599, "tablet": 600, "desktop": 1200, "desktop-big": 180
 // Grid
 
 $columns: 12; // number of columns in the grid system
-$width: 960;
 
 .container {
-	//max-width: 960px;
 	margin: 0 auto;
-}
-
-@each $breakpoint-key, $breakpoint-value in $breakpoints {
-	@if $breakpoint-key != "mobile" {
-		@media only screen and (min-width:$breakpoint-value + 'px') {
-			.container {
-				width: #{$breakpoint-value - 30}px;
-			}
-		}
-	} @else {
-		@media only screen and (max-width: map.get($breakpoints, "mobile") + 'px') {
-			@for $breakpoint-value from 1 through $columns {
-				.container {
-					max-width: 96%;
-				}
-			}
-		}
-	}
 }
 
 .cols {
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: 20px;
 }
 
-.cols {
-	@media only screen and (min-width: 0) {
+.col {
+	flex-basis: 100%;
+}
+
+// Basic col-*, pull-*, push-*
+@for $breakpoint-value from 1 through $columns {
+	.col-#{$breakpoint-value} {
+		flex-basis: math.div($breakpoint-value,$columns) * 100%;
+	}
+
+	.push-#{$breakpoint-value} {
+		margin-left: math.div($breakpoint-value,$columns) * 100%;
+	}
+
+	.pull-#{$breakpoint-value} {
+		margin-left: math.div($breakpoint-value,$columns) * 100%* -1;
+	}
+}
+
+// Device based col-*-{device}-up, pull-*-{device}-up, push-*-{device}-up
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+	@if $breakpoint-name == "mobile" {
+		@media only screen and (max-width: map.get($breakpoints, "mobile") + 'px') {
+			@for $breakpoint-value from 1 through $columns {
+				.col-#{$breakpoint-value} {
+					flex-basis: 100%;
+					margin-right: 0;
+					margin-left: 0;
+				}
+
+				.col-#{$breakpoint-value}-#{$breakpoint-name}-up {
+					flex-basis: math.div($breakpoint-value,$columns) * 100%;
+				}
+			}
+		}
+	} @else {
+		@media only screen and (min-width: #{$breakpoint-value}px) {
+			.container {
+				width: #{$breakpoint-value}px;
+				max-width: 100%;
+			}
+
+			@for $breakpoint-value from 1 through $columns {
+				.col-#{$breakpoint-value}-#{$breakpoint-name}-up {
+					flex-basis: math.div($breakpoint-value,$columns) * 100%;
+				}
+
+				.push-#{$breakpoint-value}-#{$breakpoint-name}-up {
+					margin-left: math.div($breakpoint-value,$columns) * 100%;
+				}
+
+				.pull-#{$breakpoint-value}-#{$breakpoint-name}-up {
+					margin-left: math.div($breakpoint-value,$columns) * 100% * -1;
+				}
+			}
+		}
+	}
+}
+
+/* Demo styling */
+.demo {
+	.cols {
+		margin-bottom: 20px;
+
 		.col {
+			padding: 20px 0;
 			background-color: purple;
-			background: rgb(141, 5, 168);
-			background: linear-gradient(180deg, rgba(141, 5, 168, 1) 0%, rgba(172, 48, 196, 1) 100%);
+			background: rgba(141, 5, 168, .5);
+			background: linear-gradient(180deg, rgba(141, 5, 168, .5) 0%, rgba(172, 48, 196, .5) 100%);
 			color: white;
 			border: LavenderBlush 2px solid;
 			border-radius: 5px;
-			padding: 16px;
-			flex-basis: 100%;
-		}
-	}
-
-	@for $breakpoint-value from 1 through $columns {
-		.col-#{$breakpoint-value} {
-			flex-basis: math.div($breakpoint-value,$columns) * 100%;
-		}
-	}
-
-	@each $breakpoint-name, $breakpoint-value in $breakpoints {
-		@if $breakpoint-name != "mobile" {
-			@media only screen and (min-width: $breakpoint-value + 'px') {
-				.container {
-					max-width: $breakpoint-value + 'px';
-				}
-				@for $breakpoint-value from 1 through $columns {
-					.col-#{$breakpoint-value}-#{$breakpoint-name}-up {
-						flex-basis: math.div($breakpoint-value,$columns) * 100%;
-					}
-				}
-			}
-		} @else {
-			@media only screen and (max-width: map.get($breakpoints, "mobile") + 'px') {
-				@for $breakpoint-value from 1 through $columns {
-					.col-#{$breakpoint-value} {
-						flex-basis: 100%;
-					}
-
-					.col-#{$breakpoint-value}-#{$breakpoint-name}-up {
-						flex-basis: math.div($breakpoint-value,$columns) * 100%;
-					}
-				}
-			}
+			text-align: center;
 		}
 	}
 }
