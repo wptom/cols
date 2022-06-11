@@ -4,8 +4,25 @@
  * Licensed under MIT (https://github.com/wptom/cols/blob/main/LICENSE)
  */
 
+@use "sass:map";
+
+@use "./variables" as *;
+@use "./mixins" as *;
+
 .container {
 	margin: 0 auto;
+	padding-right: calc(#{$padding} / 2);
+	padding-left: calc(#{$padding} / 2);
+
+	@media only screen and (min-width: map.get($breakpoints, "tablet") + 'px') {
+		padding-right: $padding;
+		padding-left: $padding;
+	}
+
+	@media only screen and (min-width: map.get($breakpoints, "desktop-big") + 'px') {
+		padding-right: calc(#{$padding} * 2);
+		padding-left: calc(#{$padding} * 2);
+	}
 }
 
 .cols {
@@ -15,4 +32,16 @@
 
 .col {
 	flex-basis: 100%;
+	padding-right: calc(#{$padding} / 2);
+	padding-left: calc(#{$padding} / 2);
+
+	@media only screen and (min-width: map.get($breakpoints, "tablet") + 'px') {
+		padding-right: $padding;
+		padding-left: $padding;
+	}
+
+	@media only screen and (min-width: map.get($breakpoints, "desktop-big") + 'px') {
+		padding-right: calc(#{$padding} * 2);
+		padding-left: calc(#{$padding} * 2);
+	}
 }

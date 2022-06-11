@@ -1,5 +1,9 @@
+@use "sass:map";
+
+@use "./variables" as *;
+
 // Breakpoints
-@mixin breakpoint ($breakpoint) {
+@mixin breakpoint($breakpoint) {
 	@each $breakpoint-name, $breakpoint-value in $breakpoints {
 		@if $breakpoint == $breakpoint-name {
 			@media only screen and (min-width: $breakpoint-value) {
