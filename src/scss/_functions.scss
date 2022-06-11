@@ -1,35 +1,7 @@
 @use "sass:math";
 @use "sass:map";
 
-$breakpoints: ("mobile": 599, "tablet": 600, "tablet-landscape": 900, "desktop": 1200, "desktop-big": 1800);
-
-// Breakpoints
-@mixin breakpoint ($breakpoint) {
-	@each $breakpoint-name, $breakpoint-value in $breakpoints {
-		@if $breakpoint == $breakpoint-name {
-			@media only screen and (min-width: $breakpoint-value) {
-				@content;
-			}
-		}
-	}
-}
-
-// Grid
-
-$columns: 12; // number of columns in the grid system
-
-.container {
-	margin: 0 auto;
-}
-
-.cols {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.col {
-	flex-basis: 100%;
-}
+@use "./variables" as *;
 
 // Basic col-*, pull-*, push-*
 @for $breakpoint-value from 1 through $columns {
@@ -82,24 +54,6 @@ $columns: 12; // number of columns in the grid system
 					margin-left: math.div($breakpoint-value,$columns) * 100% * -1;
 				}
 			}
-		}
-	}
-}
-
-/* Demo styling */
-.demo {
-	.cols {
-		margin-bottom: 20px;
-
-		.col {
-			padding: 20px 0;
-			background-color: purple;
-			background: rgba(141, 5, 168, .5);
-			background: linear-gradient(180deg, rgba(141, 5, 168, .5) 0%, rgba(172, 48, 196, .5) 100%);
-			color: white;
-			border: LavenderBlush 2px solid;
-			border-radius: 5px;
-			text-align: center;
 		}
 	}
 }

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+
+:root {
+	--col-background: gray;
+	--margin-bottom: 2em;
+}
+
+// Basic common styles
+body {
+	padding: 30px 0;
+	background-color: var(--col-background);
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+}
+
+h1 {
+	margin-bottom: var(--margin-bottom);
+	text-transform: uppercase;
+	font-size: 5rem;
+	font-weight: bold;
+}
+
+h2 {
+	margin-bottom: var(--margin-bottom);
+	font-size: 2rem;
+}
+
+.cols {
+	margin-bottom: var(--margin-bottom);
+}
+
+.col {
+	padding: 20px 0;
+	background-color: purple;
+	background: rgba(141, 5, 168, .5);
+	background: linear-gradient(180deg, rgba(141, 5, 168, .5) 0%, rgba(172, 48, 196, .5) 100%);
+	color: white;
+	border: LavenderBlush 2px solid;
+	border-radius: 5px;
+	text-align: center;
+}

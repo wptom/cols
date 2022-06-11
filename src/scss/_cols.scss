@@ -1,16 +1,18 @@
-/*!
+/*
  * Cols v1.0 (https://github.com/wptom/cols)
  * Copyright 2022 WPTom.com
  * Licensed under MIT (https://github.com/wptom/cols/blob/main/LICENSE)
  */
 
-// Reset
-@use "./reset";
+.container {
+	margin: 0 auto;
+}
 
-// Abstracts
-@use "./variables";
-@use "./mixins";
+.cols {
+	display: flex;
+	flex-wrap: wrap;
+}
 
-// Base
-@use "./cols";
-@use "./functions";
+.col {
+	flex-basis: 100%;
+}
