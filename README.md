@@ -41,5 +41,5 @@ These values can be changed in `src/scss/_variables.scss`
 `@include breakpoint({DEVICE}) {}`
 
 ### Examples
-[URL](https://demo.wptom.com/cols)
+[URL](https://demo.wptom.com/css-cols)
 
