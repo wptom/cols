@@ -1,5 +1,5 @@
 {
-  "name": "cols",
+  "name": "css-cols",
   "version": "1.0.0",
   "description": "CSS grid and elements.",
   "main": "index.js",
