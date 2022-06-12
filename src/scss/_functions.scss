@@ -21,10 +21,10 @@
 // Device based col-*-{device}-up, pull-*-{device}-up, push-*-{device}-up
 @each $breakpoint-name, $breakpoint-value in $breakpoints {
 	@if $breakpoint-name == "mobile" {
-		@media only screen and (max-width: map.get($breakpoints, "mobile") + 'px') {
+		@media only screen and (min-width: 0px) {
 			@for $breakpoint-value from 1 through $columns {
 				.col-#{$breakpoint-value} {
-					flex-basis: 100%;
+					flex-basis: math.div($breakpoint-value,$columns) * 100%;
 					margin-right: 0;
 					margin-left: 0;
 				}

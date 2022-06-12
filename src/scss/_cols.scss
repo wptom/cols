@@ -25,13 +25,13 @@
 	}
 }
 
-.cols {
+.row {
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .col {
-	flex-basis: 100%;
+	flex-grow: 1;
 	padding-right: calc(#{$padding} / 2);
 	padding-left: calc(#{$padding} / 2);
 
