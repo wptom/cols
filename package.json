@@ -6,9 +6,8 @@
   "scripts": {
     "start": "npm run watch-css & npm run watch-ejs",
     "reload": "reload -w src/ -d public/ -e html,scss,css,js,ejs -p 3000",
-    "watch-css": "nodemon -e scss -x \"npm run build-css & npm run build-css-demo\"",
-    "build-css": "sass src/scss/main.scss:public/css/main.css --style expanded",
-    "build-css-demo": "sass src/scss/demo.scss:public/css/demo.css --style expanded",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "build-css": "sass src/scss/main.scss:public/css/main.css --style expanded & sass src/scss/main.scss:public/css/main.min.css --style compressed & sass src/scss/demo.scss:public/css/demo.min.css --style compressed",
     "watch-ejs": "nodemon -e ejs -x \"npm run build-html\"",
     "build-html-index": "ejs views/index.ejs -o public/index.html",
     "build-html": "npm run build-html-index & npm run reload"
@@ -16,7 +15,6 @@
   "repository": "https://github.com/wptom/cols.git",
   "author": "wptom.com <tom@wptom.com>",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "ejs": "^3.1.8",
     "nodemon": "^2.0.16",
