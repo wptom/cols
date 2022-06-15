@@ -1,8 +1,8 @@
 {
   "name": "css-cols",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CSS grid and elements.",
-  "keywords": ["css", "sass", "scss", "columns", "grid", "bootstrap"],
+  "keywords": ["css", "sass", "scss", "cols", "columns", "grid", "bootstrap"],
   "main": "index.js",
   "scripts": {
     "start": "npm run watch-css & npm run watch-ejs",

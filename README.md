@@ -1,10 +1,10 @@
-# cols
-CSS grid and elements.
+# CSS Cols
+CSS grid and breakpoints.
 
 ## Installation
 
-1. `npm install`
-2. `npm start`
+* `npm install`
+* `npm start` in case you want to build grid and demo with your own values.
 
 ## How to link to your project
 
@@ -14,7 +14,7 @@ OR
 
 Link built main.css to your site.
 
-`<link rel="stylesheet" href="/css/main.css">`
+`<link rel="stylesheet" href="/css/main.min.css">`
 
 ## Usage
 ### Columns and devices
@@ -22,24 +22,72 @@ Link built main.css to your site.
 
 `{DEVICE}` is a device: mobile, tablet, tablet-landscape, desktop, desktop-big.
 
-These values can be changed in `src/scss/_variables.scss`
+These values can be changed or you can add your own in `src/scss/_variables.scss`
 
 ### Classes
-`.container`
+```scss 
+.container {}
+```
 
-`.row`
+```scss
+.row {}
+```
 
-`.col`
+```scss 
+.col {}
+```
 
-`.col-{COL}`
+```scss 
+.col-{COL} {}
+```
 
-`.col-push-{COL}-{DEVICE}-up`
+```scss 
+.col-push-{COL}-{DEVICE}-up {}
+```
 
-`.col-pull-{COL}-{DEVICE}-up`
+```scss
+.col-pull-{COL}-{DEVICE}-up {}
+```
 
 ### Mixins
-`@include breakpoint({DEVICE}) {}`
-
+```scss 
+@include breakpoint({DEVICE}) {}
+```
 ### Examples
-[URL](https://demo.wptom.com/css-cols)
+#### The same sizes of columns - all devices _including_ mobile
+```html
+<div class="row">
+    <div class="col">col</div>
+    <div class="col">col</div>
+    <div class="col">col</div>
+</div>
+```
+
+#### Various sizes of columns - all devices _including_ mobile
+```html
+<div class="row">
+    <div class="col col-3">col-3</div>
+    <div class="col col-4">col-4</div>
+    <div class="col col-5">col-5</div>
+</div>
+```
+
+#### Various sizes of columns - across all devices _except_ mobile. Mobile remains 100%.
+```html
+<div class="row">
+    <div class="col col-12 col-4-tablet-up">col-12 col-4-tablet-up</div>
+    <div class="col col-12 col-8-tablet-up">col-12 col-8-tablet-up</div>
+</div>
+```
+
+#### Push &amp; pull columns
+```html
+<div class="row">
+    <div class="col col-6 push-1-desktop-up">col-6 push-1-desktop-up</div>
+    <div class="col col-6 pull-2-desktop-up">col-6 pull-2-desktop-up</div>
+</div>
+```
+
+### Demo
+[Demo](https://demo.wptom.com/css-cols)
 
