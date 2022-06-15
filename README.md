@@ -80,7 +80,7 @@ These values can be changed or you can add your own in `src/scss/_variables.scss
 </div>
 ```
 
-#### Push &amp; pull columns
+#### Push & pull columns
 ```html
 <div class="row">
     <div class="col col-6 push-1-desktop-up">col-6 push-1-desktop-up</div>
