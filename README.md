@@ -20,7 +20,12 @@ Link built main.css to your site.
 ### Columns and devices
 `{COL}` is a number from 1 to 12.
 
-`{DEVICE}` is a device: mobile, tablet, tablet-landscape, desktop, desktop-big.
+`{DEVICE}` is a device: 
+- mobile 
+- tablet
+- tablet-landscape
+- desktop
+- desktop-big
 
 These values can be changed or you can add your own in `src/scss/_variables.scss`
 
@@ -39,6 +44,10 @@ These values can be changed or you can add your own in `src/scss/_variables.scss
 
 ```scss 
 .col-{COL} {}
+```
+
+```scss 
+.col-{DEVICE}-up {}
 ```
 
 ```scss 
