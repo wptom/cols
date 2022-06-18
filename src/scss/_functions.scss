@@ -35,9 +35,9 @@
 			}
 		}
 	} @else {
-		@media only screen and (min-width: #{$breakpoint-value}px) {
+		@media only screen and (min-width: #{$breakpoint-value}) {
 			.container {
-				width: #{$breakpoint-value}px;
+				width: #{$breakpoint-value};
 				max-width: 100%;
 			}
 

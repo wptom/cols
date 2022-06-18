@@ -1,5 +1,5 @@
 @use "sass:map";
 
-$breakpoints: ("mobile": 599, "tablet": 600, "tablet-landscape": 900, "desktop": 1200, "desktop-big": 1800);
+$breakpoints: ("mobile": 599px, "tablet": 600px, "tablet-landscape": 900px, "desktop": 1200px, "desktop-big": 1800px);
 $columns: 12; // number of columns in the grid system
 $padding: 16px;
