@@ -104,5 +104,5 @@ These values can be changed or you can add your own in `src/scss/_variables.scss
 ```
 
 ### Demo
-[Demo](https://demo.wptom.com/css-cols)
+[Demo](https://wptom.com/demo/css-cols)
 
