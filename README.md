@@ -9,6 +9,12 @@ CSS grid and breakpoints.
 ## How to link to your project
 
 Import `src/scss/main.scss` to your project's main.scss file.
+```scss
+@import "./node_modules/css-cols/src/scss/variables" as *;
+@import "./node_modules/css-cols/src/scss/mixins" as *;
+@import "./node_modules/css-cols/src/scss/cols" as *;
+@import "./node_modules/css-cols/src/scss/functions" as *;
+```
 
 OR
 
