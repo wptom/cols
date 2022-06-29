@@ -139,6 +139,12 @@ table {
   border-collapse: collapse;
 }
 
+.container,
+.row,
+.col {
+  box-sizing: border-box;
+}
+
 .container {
   margin: 0 auto;
   padding-right: calc(16px / 2);
@@ -879,7 +885,7 @@ table {
   }
 }
 /*!
- * Cols v1.0.2 (https://github.com/wptom/css-cols)
+ * Cols v1.0.5 (https://github.com/wptom/css-cols)
  * Copyright 2022 WPTom.com
  * Licensed under MIT (https://github.com/wptom/css-cols/blob/main/LICENSE)
  */
