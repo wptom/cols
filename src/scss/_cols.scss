@@ -3,6 +3,12 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+.container,
+.row,
+.col {
+	box-sizing: border-box;
+}
+
 .container {
 	margin: 0 auto;
 	padding-right: calc(#{$padding} / 2);
