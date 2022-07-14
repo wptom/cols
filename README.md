@@ -8,12 +8,12 @@ CSS grid and breakpoints.
 
 ## How to link to your project
 
-Import `src/scss/main.scss` to your project's main.scss file.
+Import `src/scss/main.scss` to your project's main.scss file. In this case the [DartSass](https://sass-lang.com/dart-sass) is required.
 ```scss
-@import "./node_modules/css-cols/src/scss/variables" as *;
-@import "./node_modules/css-cols/src/scss/mixins" as *;
-@import "./node_modules/css-cols/src/scss/cols" as *;
-@import "./node_modules/css-cols/src/scss/functions" as *;
+@use "./node_modules/css-cols/src/scss/variables" as *;
+@use "./node_modules/css-cols/src/scss/mixins" as *;
+@use "./node_modules/css-cols/src/scss/cols" as *;
+@use "./node_modules/css-cols/src/scss/functions" as *;
 ```
 
 OR
@@ -32,6 +32,13 @@ Link built main.css to your site.
 - tablet-landscape
 - desktop
 - desktop-big
+
+### Default values of breakpoints
+- "mobile": up to 599px, 
+- "tablet": from 600px, 
+- "tablet-landscape": from 900px, 
+- "desktop": from 1200px, 
+- "desktop-big": from 1800px
 
 These values can be changed or you can add your own in `src/scss/_variables.scss`
 
